@@ -7,8 +7,8 @@ Show chartboost interstitial (static interstitial, video interstial), more apps,
 
 Requires chartboost account https://www.chartboost.com
 
-Android SDK 6.5.1 (Sept. 1, 2016)<br>
-iOS SDK 6.5.2 (Sept. 28, 2016)<br>
+Android SDK 6.6.1<br>
+iOS SDK 6.6.0<br>
 
 I can't see any ads in my game - create a new publishing campaign in the Chartboost dashboard (takes 20 minutes to take effect)
 https://answers.chartboost.com/hc/en-us/articles/201121969-I-can-t-see-any-ads-in-my-game

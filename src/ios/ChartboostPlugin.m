@@ -198,8 +198,8 @@ static NSString *TEST_APP_SIGNATURE = @"37f4e779dc43837e7a6645002dffdeab0a97369b
 }
 
 -(void) _showRewardedVideoAd:(NSString *)location {
-	self.rewardedVideoAdPreload = NO;
-	[Chartboost cacheRewardedVideo:location];
+	self.rewardedVideoAdPreload = NO;	
+	
 	[Chartboost showRewardedVideo:location];
 }
 
@@ -428,18 +428,6 @@ static NSString *TEST_APP_SIGNATURE = @"37f4e779dc43837e7a6645002dffdeab0a97369b
 	//CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
 	//[pr setKeepCallbackAsBool:YES];
 	//[self.commandDelegate sendPluginResult:pr callbackId:callbackIdKeepCallback];
-}
-
-- (void)didInitialize:(BOOL)status {
-	NSLog(@"%@", @"didInitialize");
-	
-	NSDictionary* result = @{
-		@"event":@"didInitialize",
-		@"status": [NSNumber numberWithBool:status]
-	};	
-	CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:result];
-	[pr setKeepCallbackAsBool:YES];
-	[self.commandDelegate sendPluginResult:pr callbackId:callbackIdKeepCallback];
 }
 
 - (void) didClickMoreApps:(CBLocation)location {
@@ -674,15 +662,7 @@ static NSString *TEST_APP_SIGNATURE = @"37f4e779dc43837e7a6645002dffdeab0a97369b
 #pragma mark - Video Delegate
 
 - (void) willDisplayVideo:(CBLocation)location {
-	NSLog(@"%@", @"onWillDisplayVideo");
-	NSDictionary* result = @{
-		@"event":@"onWillDisplayVideo",
-		@"message":location
-	};	
-	//CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"onRewardedVideoAdCompleted"];
-	CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:result];
-	[pr setKeepCallbackAsBool:YES];
-	[self.commandDelegate sendPluginResult:pr callbackId:callbackIdKeepCallback];
+	NSLog(@"%@", @"willDisplayVideo");
 }
 
 //-----------------------------------------

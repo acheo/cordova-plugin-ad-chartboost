@@ -96,7 +96,6 @@ public class ChartboostPlugin extends CordovaPlugin {
 	protected boolean interstitialAdPreload;
 	protected boolean moreAppsAdPreload;
 	protected boolean rewardedVideoAdPreload;
-	protected boolean rewardedVideoAdPreloading = false;
 	
     @Override
 	public void pluginInitialize() {
@@ -352,14 +351,10 @@ public class ChartboostPlugin extends CordovaPlugin {
 		this.appSignature = appSignature;
 				
 		Chartboost.startWithAppId(cordova.getActivity(), this.appId , this.appSignature);
-		// Chartboost.setShouldPrefetchVideoContent(false);
-		// Chartboost.setAutoCacheAds(false);
 		Chartboost.setLoggingLevel(Level.ALL);		
 		Chartboost.onCreate(cordova.getActivity());
 		Chartboost.onStart(cordova.getActivity());
 		Chartboost.setDelegate(new MyChartboostDelegate());
-
-		// Chartboost.cacheRewardedVideo("Default");
 	}
 
 	private void _preloadInterstitialAd(String location) {
@@ -387,37 +382,15 @@ public class ChartboostPlugin extends CordovaPlugin {
 	}
 
 	private void _preloadRewardedVideoAd(String location) {
-		if (rewardedVideoAdPreloading == false) {
-			rewardedVideoAdPreloading = true;
-			rewardedVideoAdPreload = true;
+		rewardedVideoAdPreload = true;
 		
-			Chartboost.cacheRewardedVideo(location);
-		}	
+		Chartboost.cacheRewardedVideo(location);	
 	}
 
 	private void _showRewardedVideoAd(String location) {
 		rewardedVideoAdPreload = false;
-		if (Chartboost.hasRewardedVideo(location) == false) {
-			// Chartboost.cacheRewardedVideo(location);
-			_preloadRewardedVideoAd(location);
-			JSONObject result = new JSONObject();
-			try {
-				result.put("event", "hasNoRewardVideo");
-				result.put("message", location);
-			}
-			catch(JSONException ex){
-			}		
-			PluginResult pr = new PluginResult(PluginResult.Status.OK, result);
-			pr.setKeepCallback(true);
-			callbackContextKeepCallback.sendPluginResult(pr);
-
-		} else {
-			Chartboost.showRewardedVideo(location);
-			_preloadRewardedVideoAd(location);
-
-		}
-
 		
+		Chartboost.showRewardedVideo(location);	
 	}
 	
 	class MyChartboostDelegate extends ChartboostDelegate {
@@ -608,23 +581,6 @@ public class ChartboostPlugin extends CordovaPlugin {
 			//pr.setKeepCallback(true);
 			//callbackContextKeepCallback.sendPluginResult(pr);			
 		}
-
-		@Override 
-		public void didInitialize() {
-			Log.d(LOG_TAG, "didInitialize");
-
-			JSONObject result = new JSONObject();
-			try {
-				result.put("event", "didInitialize");
-				result.put("status", true);
-			}
-			catch(JSONException ex){
-			}			
-			//PluginResult pr = new PluginResult(PluginResult.Status.OK, "onMoreAppsAdShown");
-			PluginResult pr = new PluginResult(PluginResult.Status.OK, result);
-			pr.setKeepCallback(true);
-			callbackContextKeepCallback.sendPluginResult(pr);
-		}
 			
 		@Override
 		public void didClickMoreApps(String location) {
@@ -659,7 +615,6 @@ public class ChartboostPlugin extends CordovaPlugin {
 		//------------------------		
 		@Override
 		public void didCacheRewardedVideo(String location) {
-			rewardedVideoAdPreloading = false;
 			Log.d(LOG_TAG, "didCacheRewardedVideo: "+  (location != null ? location : "null"));
 					
     		if (rewardedVideoAdPreload) {
@@ -699,7 +654,7 @@ public class ChartboostPlugin extends CordovaPlugin {
 		public void didFailToLoadRewardedVideo(String location,	CBImpressionError error) {
 			Log.d(LOG_TAG, "didFailToLoadRewardedVideo: " + (location != null ? location : "null")+ ", "+ error.name());			
 		
-			rewardedVideoAdPreloading = false;
+	
 			JSONObject result = new JSONObject();
 			try {
 				result.put("event", "onRewardedVideoAdFailedToLoad");
@@ -804,20 +759,11 @@ public class ChartboostPlugin extends CordovaPlugin {
 			//pr.setKeepCallback(true);
 			//callbackContextKeepCallback.sendPluginResult(pr);				
 		}
+
 		//----------------------
 		@Override
 		public void willDisplayVideo(String location) {
 			Log.d(LOG_TAG, "willDisplayVideo: " + (location != null ? location : "null"));
-			JSONObject result = new JSONObject();
-			try {
-				result.put("event", "onWillDisplayVideo");
-				result.put("message", location);
-			}
-			catch(JSONException ex){
-			}			
-			PluginResult pr = new PluginResult(PluginResult.Status.OK, result);
-			pr.setKeepCallback(true);
-			callbackContextKeepCallback.sendPluginResult(pr);
 		}			
 	};	
 }
