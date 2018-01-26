@@ -64,6 +64,7 @@
 		<framework src="StoreKit.framework" weak="true" />
 		<framework src="Foundation.framework" />
 		<framework src="CoreGraphics.framework" />
+		<framework src="WebKit.framework" />
 		<framework src="UIKit.framework" />
 	</platform>
 </plugin>
