@@ -41,19 +41,6 @@ document.addEventListener("deviceready", function(){
 		alert('onInterstitialAdHidden: ' + location);
 	};
 	//
-	window.chartboost.onMoreAppsAdPreloaded = function(location) {
-		alert('onMoreAppsAdPreloaded: ' + location);
-	};
-	window.chartboost.onMoreAppsAdLoaded = function(location) {
-		alert('onMoreAppsAdLoaded: ' + location);
-	};
-	window.chartboost.onMoreAppsAdShown = function(location) {
-		alert('onMoreAppsAdShown: ' + location);
-	};
-	window.chartboost.onMoreAppsAdHidden = function(location) {
-		alert('onMoreAppsAdHidden: ' + location);
-	};
-	//
 	window.chartboost.onRewardedVideoAdPreloaded = function(location) {
 		alert('onRewardedVideoAdPreloaded: ' + location);
 	};
@@ -97,18 +84,13 @@ location parameter:
 <p><button onclick="window.chartboost.preloadInterstitialAd('Default');">preloadInterstitialAd</button></p>
 <p><button onclick="window.chartboost.showInterstitialAd('Default');">showInterstitialAd</button></p>
 <br>
-<p><button onclick="window.chartboost.preloadMoreAppsAd('Default');">preloadMoreAppsAd</button></p>
-<p><button onclick="window.chartboost.showMoreAppsAd('Default');">showMoreAppsAd</button></p>
-<br>
 <p><button onclick="window.chartboost.preloadRewardedVideoAd('Default');">preloadRewardedVideoAd</button></p>
 <p><button onclick="window.chartboost.showRewardedVideoAd('Default');">showRewardedVideoAd</button></p>
 <br>
 <p><button onclick="alert(window.chartboost.loadedInterstitialAd());">loadedInterstitialAd</button></p>
-<p><button onclick="alert(window.chartboost.loadedMoreAppsAd());">loadedMoreAppsAd</button></p>
 <p><button onclick="alert(window.chartboost.loadedRewardedVideoAd());">loadedRewardedVideoAd</button></p>
 <br>
 <p><button onclick="alert(window.chartboost.isShowingInterstitialAd());">isShowingInterstitialAd</button></p>
-<p><button onclick="alert(window.chartboost.isShowingMoreAppsAd());">isShowingdMoreAppsAd</button></p>
 <p><button onclick="alert(window.chartboost.isShowingRewardedVideoAd());">isShowingRewardedVideoAd</button></p>
 
 </body>

@@ -7,8 +7,8 @@ Show chartboost interstitial (static interstitial, video interstial), more apps,
 
 Requires chartboost account https://www.chartboost.com
 
-Android SDK 6.6.1<br>
-iOS SDK 6.6.0<br>
+Android SDK 7.0.1<br>
+iOS SDK 7.0.4<br>
 
 I can't see any ads in my game - create a new publishing campaign in the Chartboost dashboard (takes 20 minutes to take effect)
 https://answers.chartboost.com/hc/en-us/articles/201121969-I-can-t-see-any-ads-in-my-game
@@ -17,31 +17,6 @@ This is open source cordova plugin.
 
 You can see Cordova Plugins in one page: http://cranberrygame.github.io?referrer=github
 
-# Change log #
-```c
-1.0.46
-	Added Is showing full screen ad, Is showing more apps ad, Is showing rewarded video ad conditions.
-1.0.47
-	Added Loaded full screen ad, Loaded more apps ad, Loaded rewarded video ad conditions.
-	Updated SDK
-		Android SDK Version 5.3.0 (May 7, 2015)
-		iOS SDK Version 5.3.0 (May 7, 2015)
-1.0.51
-	Downgrade SDK to fix ios armv7s build error
-		iOS SDK Version 5.1.5 (Mar. 17, 2015)
-1.0.74
-	Fixed android interstitial ad issue.
-	Changed "full screen ad" to "interstitial ad"
-1.0.77
-    Updated SDK (Android SDK 6.0.2, iOS SDK 6.0.1)
-1.0.78
-    Updated SDK (Android SDK 6.1.0, iOS SDK 6.1.1)
-1.0.81
-    Updated SDK (iOS SDK 6.4.0)
-1.0.84
-	Updated SDK (iOS SDK 6.5.2)
-	Updated SDK (Android SDK 6.5.1)
-```
 # Install plugin #
 
 ## Cordova cli ##
@@ -72,20 +47,6 @@ Download construct2 plugin<br>
 https://dl.dropboxusercontent.com/u/186681453/pluginsforcordova/index.html<br>
 How to install c2 native plugins in xdk, cocoon and cordova cli<br>
 https://plus.google.com/102658703990850475314/posts/XS5jjEApJYV
-
-# Server setting #
-```c
-```
-
-<img src="https://raw.githubusercontent.com/cranberrygame/cordova-plugin-ad-chartboost/master/doc/app_id1.png"><br>
-<img src="https://raw.githubusercontent.com/cranberrygame/cordova-plugin-ad-chartboost/master/doc/app_id2.png"><br>
-<img src="https://raw.githubusercontent.com/cranberrygame/cordova-plugin-ad-chartboost/master/doc/publishing_campaign1.png"><br>
-<img src="https://raw.githubusercontent.com/cranberrygame/cordova-plugin-ad-chartboost/master/doc/publishing_campaign2.png"><br>
-<img src="https://raw.githubusercontent.com/cranberrygame/cordova-plugin-ad-chartboost/master/doc/publishing_campaign3.png"><br>
-<img src="https://raw.githubusercontent.com/cranberrygame/cordova-plugin-ad-chartboost/master/doc/publishing_campaign4.png"><br>
-<img src="https://raw.githubusercontent.com/cranberrygame/cordova-plugin-ad-chartboost/master/doc/publishing_campaign5.png"><br>
-<img src="https://raw.githubusercontent.com/cranberrygame/cordova-plugin-ad-chartboost/master/doc/publishing_campaign6.png"><br>
-<img src="https://raw.githubusercontent.com/cranberrygame/cordova-plugin-ad-chartboost/master/doc/publishing_campaign7.png"><br>
 
 Test mode setting:<br>
 https://www.chartboost.com - Login - DASHBOARD - [specific app] - APP SETTINGS - Basic Settings - Test Mode: select Disabled or Enabled 
@@ -185,18 +146,13 @@ location parameter:
 window.chartboost.preloadInterstitialAd('Default');//option, download ad previously for fast show
 window.chartboost.showInterstitialAd('Default');
 
-window.chartboost.preloadMoreAppsAd('Default');//option, download ad previously for fast show
-window.chartboost.showMoreAppsAd('Default');
-
 window.chartboost.preloadRewardedVideoAd('Default');//option, download ad previously for fast show
 window.chartboost.showRewardedVideoAd('Default');
 
 alert(window.chartboost.loadedInterstitialAd());//boolean: true or false
-alert(window.chartboost.loadedMoreAppsAd());//boolean: true or false
 alert(window.chartboost.loadedRewardedVideoAd());//boolean: true or false
 
 alert(window.chartboost.isShowingInterstitialAd());//boolean: true or false
-alert(window.chartboost.isShowingMoreAppsAd());//boolean: true or false
 alert(window.chartboost.isShowingRewardedVideoAd());//boolean: true or false
 ```
 # Examples #
