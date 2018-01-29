@@ -1,10 +1,8 @@
 
 module.exports = {
     _loadedInterstitialAd: false,
-    _loadedMoreAppsAd: false,
     _loadedRewardedVideoAd: false,
     _isShowingInterstitialAd: false,
-    _isShowingMoreAppsAd: false,
     _isShowingRewardedVideoAd: false,
     //
     setUp: function(appId, appSignature) {
