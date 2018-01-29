@@ -10,43 +10,7 @@ Requires chartboost account https://www.chartboost.com
 Android SDK 7.0.1<br>
 iOS SDK 7.0.4<br>
 
-I can't see any ads in my game - create a new publishing campaign in the Chartboost dashboard (takes 20 minutes to take effect)
-https://answers.chartboost.com/hc/en-us/articles/201121969-I-can-t-see-any-ads-in-my-game
-
 This is open source cordova plugin.
-
-You can see Cordova Plugins in one page: http://cranberrygame.github.io?referrer=github
-
-# Install plugin #
-
-## Cordova cli ##
-https://cordova.apache.org/docs/en/edge/guide_cli_index.md.html#The%20Command-Line%20Interface - npm install -g cordova@6.0.0
-```c
-cordova plugin add cordova-plugin-ad-chartboost
-(when build error, use github url: cordova plugin add cordova plugin add https://github.com/cranberrygame/cordova-plugin-ad-chartboost)
-```
-
-## Xdk ##
-https://software.intel.com/en-us/intel-xdk - Download XDK - XDK PORJECTS - [specific project] - CORDOVA HYBRID MOBILE APP SETTINGS - Plugin Management - Add Plugins to this Project - Third Party Plugins -
-```c
-Plugin Source: Cordova plugin registry
-Plugin ID: cordova-plugin-ad-chartboost
-```
-
-## Cocoon ##
-https://cocoon.io - Create project - [specific project] - Setting - Plugins - Custom - Git Url: https://github.com/cranberrygame/cordova-plugin-ad-chartboost.git - INSTALL - Save<br>
-
-## Phonegap build service (config.xml) ##
-https://build.phonegap.com/ - Apps - [specific project] - Update code - Zip file including config.xml
-```c
-<gap:plugin name="cordova-plugin-ad-chartboost" source="npm" />
-```
-
-## Construct2 ##
-Download construct2 plugin<br>
-https://dl.dropboxusercontent.com/u/186681453/pluginsforcordova/index.html<br>
-How to install c2 native plugins in xdk, cocoon and cordova cli<br>
-https://plus.google.com/102658703990850475314/posts/XS5jjEApJYV
 
 Test mode setting:<br>
 https://www.chartboost.com - Login - DASHBOARD - [specific app] - APP SETTINGS - Basic Settings - Test Mode: select Disabled or Enabled 
@@ -71,12 +35,7 @@ else if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad
 */
 
 document.addEventListener("deviceready", function(){
-	//if no license key, 2% ad traffic share for dev support.
-	//you can get paid license key: https://cranberrygame.github.io/request_cordova_ad_plugin_paid_license_key
-	//window.chartboost.setLicenseKey("yourEmailId@yourEmaildDamin.com", "yourLicenseKey");
-
 	window.chartboost.setUp(appId, appSignature);
-	
 	//
 	window.chartboost.onInterstitialAdPreloaded = function(location) {
 		alert('onInterstitialAdPreloaded: ' + location);
@@ -89,19 +48,6 @@ document.addEventListener("deviceready", function(){
 	};
 	window.chartboost.onInterstitialAdHidden = function(location) {
 		alert('onInterstitialAdHidden: ' + location);
-	};
-	//
-	window.chartboost.onMoreAppsAdPreloaded = function(location) {
-		alert('onMoreAppsAdPreloaded: ' + location);
-	};
-	window.chartboost.onMoreAppsAdLoaded = function(location) {
-		alert('onMoreAppsAdLoaded: ' + location);
-	};
-	window.chartboost.onMoreAppsAdShown = function(location) {
-		alert('onMoreAppsAdShown: ' + location);
-	};
-	window.chartboost.onMoreAppsAdHidden = function(location) {
-		alert('onMoreAppsAdHidden: ' + location);
 	};
 	//
 	window.chartboost.onRewardedVideoAdPreloaded = function(location) {
@@ -139,10 +85,10 @@ location parameter:
 'Game Over' - The game over screen after a player is finished playing.
 'Leaderboard' - List of leaders in the game.
 'Settings' - Screen where player can change settings such as sound.
-'Quit' - Screen displayed right before the player exits a game.		
-*/	
+'Quit' - Screen displayed right before the player exits a game.
+*/
 
-//static interstitial, video interstial
+//static interstitial, video interstitial
 window.chartboost.preloadInterstitialAd('Default');//option, download ad previously for fast show
 window.chartboost.showInterstitialAd('Default');
 
@@ -157,19 +103,3 @@ alert(window.chartboost.isShowingRewardedVideoAd());//boolean: true or false
 ```
 # Examples #
 <a href="https://github.com/cranberrygame/cordova-plugin-ad-chartboost/blob/master/example/basic/index.html">example/basic/index.html</a><br>
-
-# Test #
-
-<img src="https://github.com/cranberrygame/cordova-plugin-ad-chartboost/blob/master/doc/fullscreen_ad.png">
-
-[![](http://img.youtube.com/vi/EQJLRbSKmPU/0.jpg)](https://www.youtube.com/watch?v=EQJLRbSKmPU&feature=youtu.be "Youtube")
-
-You can also run following test apk.
-https://dl.dropboxusercontent.com/u/186681453/pluginsforcordova/chartboost/apk.html
-
-# Useful links #
-
-Cordova Plugins<br>
-http://cranberrygame.github.io?referrer=github
-
-# Credits #
