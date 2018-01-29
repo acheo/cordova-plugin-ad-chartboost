@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-ad-chartboost",
-  "version": "1.0.84",
+  "version": "1.1.0",
   "description": "Show chartboost interstitial (static interstitial, video interstial), more apps, rewarded video ad",
   "cordova": {
     "id": "cordova-plugin-ad-chartboost",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cranberrygame/cordova-plugin-ad-chartboost.git"
+    "url": "git+https://github.com/acheo/cordova-plugin-ad-chartboost.git"
   },
   "keywords": [
     "cordova",
@@ -33,7 +33,7 @@
   "author": "cranberrygame",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/cranberrygame/cordova-plugin-ad-chartboost/issues"
+    "url": "https://github.com/acheo/cordova-plugin-ad-chartboost/issues"
   },
-  "homepage": "https://github.com/cranberrygame/cordova-plugin-ad-chartboost#readme"
+  "homepage": "https://github.com/acheo/cordova-plugin-ad-chartboost#readme"
 }
