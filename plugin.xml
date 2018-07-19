@@ -46,7 +46,7 @@
         <source-file src="src/android/ChartboostPlugin.java" target-dir="src/com/cranberrygame/cordova/plugin/ad/chartboost" />
 
         <source-file src="src/android/chartboost.jar" target-dir="libs" />
-        <framework src="com.google.android.gms:play-services-ads:^8.4.0" />
+        <framework src="com.google.android.gms:play-services-ads:8.4.0" />
     </platform>
 
     <!-- ios -->
