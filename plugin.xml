@@ -21,7 +21,7 @@
 
     <!-- android -->
     <platform name="android">
-        <config-file target="res/xml/config.xml" parent="/*">
+        <config-file target="config.xml" parent="/*">
             <feature name="ChartboostPlugin" >
                 <param name="android-package" value="com.cranberrygame.cordova.plugin.ad.chartboost.ChartboostPlugin"/>
             </feature>
